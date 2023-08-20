@@ -1,0 +1,11 @@
+echo "-----------------------------------------------"
+echo "------ DOCKER COMPOSE STOP --------------------"
+echo "-----------------------------------------------"
+sudo service docker start
+cd wordpress
+sudo docker-compose stop
+
+echo "-----------------------------------------------"
+echo "------ DOCKER COMPOSE START -------------------"
+echo "-----------------------------------------------"
+sudo docker-compose start

@@ -1,0 +1,3 @@
+cd ~/wordpress
+sudo docker-compose down
+cd ~/

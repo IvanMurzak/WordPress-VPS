@@ -1,0 +1,14 @@
+sudo service docker start
+
+cd ~/wordpress
+sudo docker-compose down
+cd ~/
+rm -rf wordpress
+
+tar xf archives/source.tar.bz2 -C ~/
+rm archives/source.tar.bz2
+
+cd ~/wordpress
+
+sudo docker-compose build
+sudo docker-compose up -d

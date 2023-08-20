@@ -1,0 +1,12 @@
+echo "-----------------------------------------------"
+echo "------ DOCKER SHUTDOWN ------------------------"
+echo "-----------------------------------------------"
+sudo service docker start
+cd wordpress
+sudo docker-compose down
+
+echo "-----------------------------------------------"
+echo "------ DOCKER COMPOSE BUILD UP ----------------"
+echo "-----------------------------------------------"
+sudo docker-compose build
+sudo docker-compose up -d

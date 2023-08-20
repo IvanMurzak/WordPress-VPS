@@ -1,14 +1,14 @@
 sudo service docker start
 
-cd ~/wordpress
+cd ~/deployment
 sudo docker-compose down
 cd ~/
-rm -rf wordpress
+rm -rf deployment
 
 tar xf archives/source.tar.bz2 -C ~/
 rm archives/source.tar.bz2
 
-cd ~/wordpress
+cd ~/deployment
 
 sudo docker-compose build
 sudo docker-compose up -d

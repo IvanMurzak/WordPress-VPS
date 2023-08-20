@@ -2,7 +2,7 @@ echo "-----------------------------------------------"
 echo "------ DOCKER SHUTDOWN ------------------------"
 echo "-----------------------------------------------"
 sudo service docker start
-cd wordpress
+cd deployment
 sudo docker-compose down
 
 echo "-----------------------------------------------"

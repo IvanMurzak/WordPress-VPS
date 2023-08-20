@@ -67,8 +67,8 @@ mkdir WordpressData
 mkdir DBData
 cd ..
 
-mkdir wordpress
-cd wordpress
+mkdir deployment
+cd deployment
 mkdir nginx-conf
 
 

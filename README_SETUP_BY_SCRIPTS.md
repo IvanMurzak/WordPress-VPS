@@ -68,13 +68,13 @@ Windows: `./scripts/windows/setup/SetupVPS.bat`
 
 ### 5. NGINX configuration
 
-Open the file `deployment/nginx-conf/nginx.conf` and replace `********` by your domain name in 6 different places. Make sure you don't miss any. File lines: 5 (twice), 52 (twice), 57, 58.
+Open the file `./deployment/nginx-conf/nginx.conf` and replace `********` by your domain name in 6 different places. Make sure you don't miss any. File lines: 5 (twice), 52 (twice), 57, 58.
 
 > The domain name is doubled two times for `www` and `non-www` versions. Keep it.
 
 ### 6. MySQL credentials
 
-Open the file `deployment/.env` and replace `********` by your database credentials. You can use any. At first deployment it will be used to create database and user. For the next times it will be used for authentication. Make sure you don't change this file after first deployment, in other case you may have issues because incorrect credentials.
+Open the file `./deployment/.env` and replace `********` by your database credentials. You can use any. At first deployment it will be used to create database and user. For the next times it will be used for authentication. Make sure you don't change this file after first deployment, in other case you may have issues because incorrect credentials.
 
 - `MYSQL_USER`
 - `MYSQL_PASSWORD`
@@ -84,7 +84,7 @@ Open the file `deployment/.env` and replace `********` by your database credenti
 
 ### 7. CertBot & Let's Encrypt (SSL certificate)
 
-Open the file `deployment/.env` and replace `********` by your data.
+Open the file `./deployment/.env` and replace `********` by your data.
 
 - `SSL_CERTIFICATE_EMAIL` - email address that will be used as owner of domain name
 - `SSL_CERTIFICATE_DOMAIN` - your domain name
@@ -95,7 +95,7 @@ Open the file `deployment/.env` and replace `********` by your data.
 
 #### 8.1 🔄 Force renewal
 
-Open the file `deployment/.env`. Make sure `SSL_START_MODE` is set to `force-renewal`
+Open the file `./deployment/.env`. Make sure `SSL_START_MODE` is set to `force-renewal`
 
 ```bash
 SSL_START_MODE=force-renewal
@@ -114,7 +114,7 @@ Verify that HTTPS works after 30 seconds by opening your domain name in browser.
 
 #### 8.4 💠 Setup auto-renewal SSL certificate
 
-Open file `deployment/.env`. Make sure `SSL_START_MODE` is set to `staging`.
+Open file `./deployment/.env`. Make sure `SSL_START_MODE` is set to `staging`.
 
 ```bash
 SSL_START_MODE=staging

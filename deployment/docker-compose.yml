@@ -55,10 +55,12 @@ services:
           - webserver
         image: certbot/certbot
         container_name: certbot
+        restart: unless-stopped
         volumes:
+          - ./nginx-conf:/etc/nginx/conf.d
           - certbot-etc:/etc/letsencrypt
           - wordpress:/var/www/html
-        command: certonly --webroot --webroot-path=/var/www/html --email ${SSL_CERTIFICATE_EMAIL} --agree-tos --no-eff-email --${SSL_START_MODE} -d ${SSL_CERTIFICATE_DOMAIN} -d www.${SSL_CERTIFICATE_DOMAIN}
+        command: certonly --nginx --email ${SSL_CERTIFICATE_EMAIL} --agree-tos --no-eff-email --${SSL_START_MODE} -d ${SSL_CERTIFICATE_DOMAIN} -d www.${SSL_CERTIFICATE_DOMAIN}
         
 volumes:
     certbot-etc:
@@ -66,19 +68,19 @@ volumes:
         driver_opts:
             type: 'none'
             o: 'bind'
-            device: '../Persistant/CertbotData'
+            device: '../persistant/CertbotData'
     wordpress:
         driver: local
         driver_opts:
             type: 'none'
             o: 'bind'
-            device: '../Persistant/WordpressData'
+            device: '../persistant/WordpressData'
     dbdata:
         driver: local
         driver_opts:
             type: 'none'
             o: 'bind'
-            device: '../Persistant/DBData'
+            device: '../persistant/DBData'
 
 networks:
     app-network:

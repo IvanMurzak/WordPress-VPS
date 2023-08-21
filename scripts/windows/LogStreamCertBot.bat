@@ -4,4 +4,4 @@ cd..
 
 set ARCHIVE=source.tar.bz2
 
-plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "../deployment/scripts/LogStream.sh" -batch
+plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./../../deployment/scripts/LogStream.sh" -batch

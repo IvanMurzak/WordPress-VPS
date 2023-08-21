@@ -58,28 +58,25 @@ sudo service docker start
 echo "-------------------------------------"
 echo "----------- CERTBOT -----------------"
 echo "-------------------------------------"
-sudo yum install epel-release
-sudo yum install certbot-nginx
+sudo yum -y install epel-release
+sudo yum -y install certbot-nginx
+
+#update
+sudo yum -y update
 
 #creating directories
 echo "-------------------------------------"
 echo "----------- CREATE DIRECTORIES ------"
 echo "-------------------------------------"
-mkdir ./archives
-
-mkdir ./persistant
-cd ./persistant
-mkdir ./CertbotData
-mkdir ./WordpressData
-mkdir ./DBData
-cd ..
-
+mkdir ~/archives
+mkdir ~/persistant
+mkdir ~/persistant/CertbotData
+mkdir ~/persistant/WordpressData
+mkdir ~/persistant/DBData
 mkdir ~/deployment
-cd ~/deployment
-mkdir ./nginx-conf
+mkdir ~/deployment/nginx-conf
 
-
-
+cd ~
 
 
 echo "-------------------------------------"

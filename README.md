@@ -81,7 +81,7 @@ There are bunch of scripts to help you with the setup, maintenance, debugging an
 
 Please follow instruction in the right order. Don't skip any step, each of them is important. There are two setup options. I personally recommend to use the first one, it's longer to setup and much easier to use.
 
-### Option 1: **[Setup by scripts](https//github.com/IvanMurzak/WordPress-VPS/README_SETUP_BY_SCRIPTS.md)**
+### Option 1: **[Setup by scripts](https://github.com/IvanMurzak/WordPress-VPS/blob/main/README_SETUP_BY_SCRIPTS.md)**
 
 Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use, but requires more time to setup.
 
@@ -93,7 +93,7 @@ Execute local scripts at your local computer that automatically open SSH connect
 |✔️ Good for long term support||
 |✔️ Allows to run custom commands by `Local Script`:<br/>---- `Terminal`<br/>---- `TerminalDedicated`||
 
-### Option 2: **[Setup manually](https//github.com/IvanMurzak/WordPress-VPS/README_SETUP_MANUALLY.md)**
+### Option 2: **[Setup manually](https://github.com/IvanMurzak/WordPress-VPS/blob/main/https/github.com/IvanMurzak/WordPress-VPS/README_SETUP_MANUALLY.md)**
 
 Open SSH connection with VPS on your own and type commands manually. It's much faster to setup, but requires more time to use.
 

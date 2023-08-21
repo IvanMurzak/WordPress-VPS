@@ -36,11 +36,11 @@ If you need more control, this project allows you to do it. You can modify the s
   - ✔️`Centos7` [verified]
   - ❔ Another [not yet verified]
 
-|Hardware requirements           |Minimum      |
-|:-------------------------------|:------------|
-|CPU Cores                       |1 CPU core   |
-|Storage                         |20 GB        |
-|RAM                             |1 GB         |
+| Hardware requirements     | Minimum    |
+| :------------------------ | :--------- |
+| CPU Cores                 | 1 CPU core |
+| Storage                   | 20 GB      |
+| RAM                       | 1 GB       |
 
 ---
 
@@ -61,7 +61,7 @@ There are bunch of scripts to help you with the setup, maintenance, debugging an
      - `Local script` for Linux OS. Located: `./scripts/linux`
 
 | Local | Deployed | Script | Description |
-| :---: | :------: | :----- | :----       |
+| :---: | :------: | :----- | :---------- |
 |✔️|✔️|`SetupVPS`|setup VPS environment with all needed apps|
 |✔️|✔️|`DockerAddUserCentos`|adds user with name `centos` to docker|
 |✔️|✔️|`DockerComposeDown`|runs `down` command for docker compose|
@@ -77,7 +77,25 @@ There are bunch of scripts to help you with the setup, maintenance, debugging an
 |✔️|❌|`Terminal`|Opens SSH connection, allows to type commands|
 |✔️|❌|`TerminalDedicated`|Opens SSH connection, allows to type commands in dedicated window|
 
-## Setup
+## Setup domain name
+
+Open admin panel of your domain name provider. Find DNS settings. Let's use demo domain name **`my-domain.com`** with demo IP address **`123.123.123.123`** to fill records. Please use your own domain name and IP address.
+
+- Setup `A` record to point to **`123.123.123.123`**
+- Setup `CNAME` record to point to **`my-domain.com`** record
+- Setup `AAAA` record to point to **`IP v6 address`** (optional)
+
+It will forward internet traffic from your domain name to the VPS instance. It may take up to 24 hours to apply changes.
+
+| TYPE  | HOST                                | ANSWER                | TTL |
+| :---- | :---------------------------------- | :-------------------- | :-- |
+| A     | **`my-domain.com`**                 | **`123.123.123.123`** | 600 |
+| AAAA  | **`my-domain.com`**                 | **`IP v6 address`**   | 600 |
+| CNAME | *.**`my-domain.com`**               | **`my-domain.com`**   | 600 |
+
+---
+
+## Setup VPS instance
 
 Please follow instruction in the right order. Don't skip any step, each of them is important. There are two setup options. I personally recommend to use the first one, it's longer to setup and much easier to use.
 
@@ -85,8 +103,8 @@ Please follow instruction in the right order. Don't skip any step, each of them 
 
 Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use, but requires more time to setup.
 
-|Pros|Cons|
-|:---|:---|
+| Pros | Cons |
+| :--- | :--- |
 |✔️ Fast access to bunch of scripts from your computer|❌ Requires more time to install|
 |✔️ Executing scripts by mouse double click|❌ Complicated at Windows OS|
 |✔️ No need to open SSH connection manually||
@@ -97,8 +115,8 @@ Execute local scripts at your local computer that automatically open SSH connect
 
 Open SSH connection with VPS on your own and type commands manually. It's much faster to setup, but requires more time to use.
 
-|Pros|Cons|
-|:---|:---|
+| Pros | Cons |
+| :--- | :--- |
 |✔️ Easy to setup|❌ Need manually type commands|
 |✔️ Allows to run custom commands|❌ Need manually open SSH connection|
 

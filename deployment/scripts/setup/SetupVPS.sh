@@ -10,7 +10,7 @@ sudo yum -y install lbzip2
 echo "-------------------------------------"
 echo "----------- PYTHON ------------------"
 echo "-------------------------------------"
-sudo yum install rh-python36
+sudo yum -y install rh-python36
 scl enable rh-python36 bash
 echo "-------------------------------------"
 echo "----------- NANO --------------------"
@@ -38,7 +38,7 @@ echo "----------- DOCKER ------------------"
 echo "-------------------------------------"
 echo "----------- yum-utils ---------------"
 
-sudo yum install -y yum-utils
+sudo yum -y install yum-utils
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
 echo "----------- docker ------------------"
@@ -53,13 +53,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo service docker start
-
-#certbot
-echo "-------------------------------------"
-echo "----------- CERTBOT -----------------"
-echo "-------------------------------------"
-sudo yum -y install epel-release
-sudo yum -y install certbot-nginx
 
 #update
 sudo yum -y update
@@ -77,7 +70,6 @@ mkdir ~/deployment
 mkdir ~/deployment/nginx-conf
 
 cd ~
-
 
 echo "-------------------------------------"
 echo "----------- DONE!!! -----------------"

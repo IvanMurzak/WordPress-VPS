@@ -1,7 +1,8 @@
-sudo service docker start
-
 cd ~/deployment
+
+sudo service docker start
 sudo docker-compose down
+
 cd ~/
 rm -rf deployment
 

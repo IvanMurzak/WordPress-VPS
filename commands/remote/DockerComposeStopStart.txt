@@ -1,8 +1,9 @@
+cd ~/deployment
+sudo service docker start
+
 echo "-----------------------------------------------"
 echo "------ DOCKER COMPOSE STOP --------------------"
 echo "-----------------------------------------------"
-sudo service docker start
-cd deployment
 sudo docker-compose stop
 
 echo "-----------------------------------------------"

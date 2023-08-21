@@ -1,1 +1,1 @@
-sudo docker logs -f webserver
+sudo docker logs -f nginx_certbot

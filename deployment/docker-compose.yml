@@ -34,12 +34,14 @@ services:
         networks:
           - app-network
           
-    webserver:
+    nginx_certbot:
         depends_on:
           - wordpress
-        image: nginx:${DOCKER_NGINX_VERSION}
-        container_name: webserver
+        image: jonasal/nginx-certbot:${DOCKER_NGINX_CERTBOT_VERSION}
+        container_name: nginx_certbot
         restart: unless-stopped
+        env_file: 
+          - ./.env
         ports:
           - "80:80"
           - "443:443"
@@ -49,18 +51,6 @@ services:
           - wordpress:/var/www/html
         networks:
           - app-network
-          
-    certbot:
-        depends_on:
-          - webserver
-        image: certbot/certbot
-        container_name: certbot
-        restart: unless-stopped
-        volumes:
-          - ./nginx-conf:/etc/nginx/conf.d
-          - certbot-etc:/etc/letsencrypt
-          - wordpress:/var/www/html
-        command: certonly --nginx --email ${SSL_CERTIFICATE_EMAIL} --agree-tos --no-eff-email --${SSL_START_MODE} -d ${SSL_CERTIFICATE_DOMAIN} -d www.${SSL_CERTIFICATE_DOMAIN}
         
 volumes:
     certbot-etc:

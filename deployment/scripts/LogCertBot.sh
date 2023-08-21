@@ -1,1 +1,1 @@
-sudo docker logs -f certbot
+sudo docker logs -f nginx_certbot

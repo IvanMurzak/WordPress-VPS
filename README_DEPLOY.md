@@ -14,7 +14,8 @@
 
 ## Option: Use scripts to handle deployment
 
-This is easy way, highly recommended to use. 
+This is easy way, highly recommended to use.
+
 1. Establish SSH connection with VPS instance
 2. ...
 
@@ -37,6 +38,23 @@ Open the `_configs` file related to your OS.
 Replace `****` by IP and Password to the VPS instance.
 
 ### 4. Setup SSL
+
+---
+
+## Option: Manual deployment
+
+If you want to deploy manually, you can do that.
+
+1. `deployment` folder from this repository should be copies to your VPS instance to this location `~/deployment`
+2. execute this commands in terminal at VPS instance
+
+```bash
+cd ~/deployment
+sudo service docker start
+sudo docker-compose down
+sudo docker-compose build
+sudo docker-compose up -d
+```
 
 ---
 

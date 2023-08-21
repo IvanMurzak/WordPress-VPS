@@ -1,6 +1,6 @@
-call _configs.bat
+call ./_configs.bat
 title Docker Remove Volumes
-cd..
+cd ./../../
 
-plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./../../deployment/scripts/DockerRemoveVolumes.sh" -batch
+plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./deployment/scripts/DockerRemoveVolumes.sh" -batch
 pause

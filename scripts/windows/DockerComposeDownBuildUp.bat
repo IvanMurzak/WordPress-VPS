@@ -1,6 +1,6 @@
-call _configs.bat
+call ./_configs.bat
 title Docker Compose Down Build Up
-cd..
+cd ./../../
 
-plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./../../deployment/scripts/DockerComposeDownBuildUp.sh" -batch
+plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./deployment/scripts/DockerComposeDownBuildUp.sh" -batch
 pause

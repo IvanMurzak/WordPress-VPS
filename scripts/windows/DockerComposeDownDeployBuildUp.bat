@@ -1,6 +1,6 @@
-call _configs.bat
+call ./_configs.bat
 title Docker Compose Down Deploy Build Up
-cd..
+cd ./../../
 
 set ARCHIVE=source.tar.bz2
 
@@ -11,5 +11,5 @@ pscp -P 22 -pw %PASSWORD% ./%ARCHIVE% %USER%@%SERVER%:./archives
 
 del %ARCHIVE%
 
-plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./../../deployment/scripts/DockerComposeDownDeployBuildUp.sh" -batch
+plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./deployment/scripts/DockerComposeDownDeployBuildUp.sh" -batch
 pause

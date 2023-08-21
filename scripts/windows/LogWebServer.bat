@@ -1,7 +1,5 @@
-call _configs.bat
+call ./_configs.bat
 title Remote Server Web Logs
-cd..
+cd ./../../
 
-set ARCHIVE=source.tar.bz2
-
-plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./../../deployment/scripts/LogWebServer.sh" -batch
+plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "./deployment/scripts/LogWebServer.sh" -batch

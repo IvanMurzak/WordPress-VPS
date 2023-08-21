@@ -93,7 +93,7 @@ Execute local scripts at your local computer that automatically open SSH connect
 |✔️ Good for long term support||
 |✔️ Allows to run custom commands by `Local Script`:<br/>---- `Terminal`<br/>---- `TerminalDedicated`||
 
-### Option 2: **[Setup manually](https://github.com/IvanMurzak/WordPress-VPS/blob/main/https/github.com/IvanMurzak/WordPress-VPS/README_SETUP_MANUALLY.md)**
+### Option 2: **[Setup manually](https://github.com/IvanMurzak/WordPress-VPS/blob/main/README_SETUP_MANUALLY.md)**
 
 Open SSH connection with VPS on your own and type commands manually. It's much faster to setup, but requires more time to use.
 

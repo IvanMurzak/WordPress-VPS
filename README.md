@@ -118,7 +118,7 @@ It will forward internet traffic from your domain name to the VPS instance. It m
 ### Optional
 
 - `DHPARAM_SIZE`: The size of the [Diffie-Hellman parameters](./docs/good_to_know.md#diffie-hellman-parameters) (default: `2048`)
-- `ELLIPTIC_CURVE`: The size/[curve][15] of the ECDSA keys (default: `secp256r1`)
+- `ELLIPTIC_CURVE`: The size / [curve] [15] of the ECDSA keys (default: `secp256r1`)
 - `RENEWAL_INTERVAL`: Time interval between certbot's [renewal checks](./docs/good_to_know.md#renewal-check-interval) (default: `8d`)
 - `RSA_KEY_SIZE`: The size of the RSA encryption keys (default: `2048`)
 - `STAGING`: Set to `1` to use Let's Encrypt's [staging servers](./docs/good_to_know.md#initial-testing) (default: `0`)
@@ -128,7 +128,7 @@ It will forward internet traffic from your domain name to the VPS instance. It m
 
 - `CERTBOT_AUTHENTICATOR`: The [authenticator plugin](./docs/certbot_authenticators.md) to use when responding to challenges (default: `webroot`)
 - `CERTBOT_DNS_PROPAGATION_SECONDS`: The number of seconds to wait for the DNS challenge to [propagate](.docs/certbot_authenticators.md#troubleshooting-tips) (default: certbot's default)
-- `DEBUG`: Set to `1` to enable debug messages and use the [`nginx-debug`][10] binary (default: `0`)
+- `DEBUG`: Set to `1` to enable debug messages and use the [`nginx-debug`] [10] binary (default: `0`)
 - `USE_LOCAL_CA`: Set to `1` to enable the use of a [local certificate authority](./docs/advanced_usage.md#local-ca) (default: `0`)
 
 ## Deploy & Start

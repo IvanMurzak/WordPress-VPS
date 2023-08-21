@@ -12,16 +12,9 @@
   <a target="_blank" href="https://www.google.com/search?q=virtual+private+server"><img src="https://img.shields.io/badge/VPS-FFFFFF?style=for-the-badge&logo=vps&logoColor=white" /></a>
 </div>
 
-Deploy WordPress to VPS in Docker with SSL certificate by Let's Encrypt and CertBot. The project designed to simple usage, no advanced tech skills required. It contains scripts that will do all the work for you. You just need to setup some credentials and run the scripts from your local computer.
+Deploy WordPress to VPS in Docker with SSL certificate by Let's Encrypt and CertBot. The project designed for simple usage, no advanced tech skills required. It contains scripts that will do all the work for you. Still need to setup credentials and run the scripts from your local computer.
 
 If you need more control, this project allows you to do it. You can modify the scripts and `docker-compose.yml` file to fit your needs.
-
-**Docker compose layout**
-
-> - `webserver` - Nginx
-> - `wordpress` - WordPress application
-> - `certbot` - SSL certificate creating and renewing
-> - `db` - MySQL database, used by WordPress
 
 ## Features
 
@@ -49,95 +42,69 @@ If you need more control, this project allows you to do it. You can modify the s
 |Storage                         |20 GB        |
 |RAM                             |1 GB         |
 
-## Get access to VPS's terminal
+---
 
-Skip this part if you already have connection to your VPS instance.
+**Docker compose layout**
+
+> - `webserver` - NGINX web server
+> - `wordpress` - WordPress application
+> - `certbot` - SSL certificate creating and renewing
+> - `db` - MySQL database, used by WordPress
+
+## Usage by scripts
+
+There are bunch of scripts to help you with the setup, maintenance, debugging and monitoring.
+
+1. `Deployed script` for VPS's terminal. Located: `./deployment/scripts`. This scripts should be at VPS instance and be executed. You can run them manually at VPS's terminal, or use `Local Script` to do that automatically.
+2. `Local script` opens SSH connection automatically with VPS and send commands to VPS to execute.You can find them in the `./scripts` folder.
+     - `Local script` for Windows OS. Located: `./scripts/windows`
+     - `Local script` for Linux OS. Located: `./scripts/linux`
+
+| Local | Deployed | Script | Description |
+| :---: | :------: | :----- | :----       |
+|✔️|✔️|`SetupVPS`|setup VPS environment with all needed apps|
+|✔️|✔️|`DockerAddUserCentos`|adds user with name `centos` to docker|
+|✔️|✔️|`DockerComposeDown`|runs `down` command for docker compose|
+|✔️|✔️|`DockerComposeDownBuildUp`|runs `down`, `build up` commands for docker compose|
+|✔️<br/><br/><br/><br/><br/><br/>|✔️<br/><br/><br/><br/><br/><br/>|`DockerComposeDownDeployBuildUp`<br/><br/><br/><br/><br/><br/>|`Local Script`:<br/>1. archive `deployment` at local computer,<br/>2. sends it to VPS.<br/>`Deployed script`:<br/>1. unpack archive<br/>2. runs `down`, `build up` for docker compose|
+|✔️|✔️|`DockerComposeDownRemoveAll`|runs `down`, `build up` commands for docker compose|
+|✔️|✔️|`DockerComposeStopStart`|runs `down`, `build up` commands for docker compose|
+|✔️|✔️|`DockerRemoveVolumes`|runs `down`, `build up` commands for docker compose|
+|✔️|✔️|`LogStreamWebServer`|Opens log stream for `webserver` docker instance|
+|✔️|✔️|`LogStreamWordPress`|Opens log stream for `wordpress` docker instance|
+|✔️|✔️|`LogStreamCertBot`|Opens log stream for `certbot` docker instance|
+|✔️|✔️|`LogStreamDB`|Opens log stream for `db` docker instance|
+|✔️|❌|`Terminal`|Opens SSH connection, allows to type commands|
+|✔️|❌|`TerminalDedicated`|Opens SSH connection, allows to type commands in dedicated window|
 
 ## Setup
 
-Everything is build in, just need to setup some credentials in multiple different places. Then you will be able to use scripts to deploy WordPress to your VPS instance. Don't skip any step, each of them is important.
+Please follow instruction in the right order. Don't skip any step, each of them is important. There are two setup options. I personally recommend to use the first one, it's longer to setup and much easier to use.
 
-### 0. Set up SSH connection to VPS
+### Option 1: **[Setup by scripts](https//github.com/IvanMurzak/WordPress-VPS/README_SETUP_BY_SCRIPTS.md)**
 
+Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use, but requires more time to setup.
 
+|Pros|Cons|
+|:---|:---|
+|✔️ Fast access to bunch of scripts from your computer|❌ Requires more time to install|
+|✔️ Executing scripts by mouse double click|❌ Complicated at Windows OS|
+|✔️ No need to open SSH connection manually||
+|✔️ Good for long term support||
+|✔️ Allows to run custom commands by `Local Script`:<br/>---- `Terminal`<br/>---- `TerminalDedicated`||
 
-### 1. Prepare VPS
+### Option 2: **[Setup manually](https//github.com/IvanMurzak/WordPress-VPS/README_SETUP_MANUALLY.md)**
 
-#### Option: Use local script
+Open SSH connection with VPS on your own and type commands manually. It's much faster to setup, but requires more time to use.
 
-Linux: Execute the script `./scripts/linux/setup/SetupVPS.sh`
-Windows: Execute the script `./scripts/windows/setup/SetupVPS.bat`
-
-#### Option: Manual remote terminal
-
-Execute the script `~/deployment/scripts/setup/SetupVPS.sh`
-
-```bash
-sh ~/deployment/scripts/setup/SetupVPS.sh
-```
-
-### 2. Nginx
-
-Open file `deployment/nginx-conf/nginx.conf`. Replace `********` by your domain name in 6 different places, make sure you don't miss any. File lines: 5, 52, 57, 58.
-
-> The domain name is doubled two times for `www` and `non-www` versions. Keep it.
-
-### 3. MySQL credentials
-
-Open file `deployment/.env`. Replace `********` by your database credentials. You can use any. At first deployment it will be used to create database and user. For the next times it will be used for authentication. Make sure you don't change this file after first deployment, in other case you may have issues because incorrect credentials.
-
-- `MYSQL_USER`
-- `MYSQL_PASSWORD`
-- `MYSQL_ROOT_PASSWORD`
-
-> Make sure you have visible hidden files in your file explorer.
-
-### 4. CertBot + Let's Encrypt (SSL)
-
-Open file `deployment/.env`. Replace `********` by your data.
-
-- `SSL_CERTIFICATE_EMAIL` - email address that will be used as owner of domain name
-- `SSL_CERTIFICATE_DOMAIN` - your domain name
-
-### 5. SSL certificate: create, use and renew
-
-`CertBot` + `Let's Encrypt` will create SSL certificate for your domain name. It will be used by `NGINX` to serve your website via `HTTPS`. You need to follow this tutorial just once, then it will be auto-renewed.
-
-#### 5.1 🔄 Force renewal
-
-Open file `deployment/.env`. Make sure `SSL_START_MODE` is set to `force-renewal`
-
-```bash
-SSL_START_MODE=force-renewal
-```
-
-#### 5.2 ☁️ Deploy
-
-Deploy `deployment` folder to VPS using **[Deploy Instruction](https//github.com/IvanMurzak/WordPress-VPS/README_DEPLOY.md)**.
-
-#### 5.3 🔎 Validate
-
-Verify that HTTPS works after 30 seconds by opening your domain name in browser. If doesn't check your domain name DNS settings.
-
-#### 5.4 💠 Staging
-
-Open file `deployment/.env`. Make sure `SSL_START_MODE` is set to `staging`
-
-```bash
-SSL_START_MODE=staging
-```
-
-#### 5.5 ☁️ Deploy (again)
-
-Deploy `deployment` folder to VPS using **[Deploy Instruction](https//github.com/IvanMurzak/WordPress-VPS/README_DEPLOY.md)**.
-
-## 6. Finish 🏁
-
-All done! You can now open your domain name in browser and see your WordPress website. You can also open `https://www.ssllabs.com/ssltest/analyze.html?d=yourdomainname.com` to verify that your SSL certificate is valid.
+|Pros|Cons|
+|:---|:---|
+|✔️ Easy to setup|❌ Need manually type commands|
+|✔️ Allows to run custom commands|❌ Need manually open SSH connection|
 
 ---
 
-## Thanks to
+## Thanks
 
-- 🌟 **Denys Budelkov** for his help with scripts creation.
+- 🌟 **Denys Svitelskyi** for his help with bash scripts creation.
 - 🌟 **[DigitalOcean](https://www.digitalocean.com/)** for their great tutorials that helped me to bring all together. **[Hot To Install WordPress With Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose).**

@@ -54,22 +54,28 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo service docker start
 
+#certbot
+echo "-------------------------------------"
+echo "----------- CERTBOT -----------------"
+echo "-------------------------------------"
+sudo yum install python3-certbot-nginx
+
 #creating directories
 echo "-------------------------------------"
 echo "----------- CREATE DIRECTORIES ------"
 echo "-------------------------------------"
-mkdir archives
+mkdir ./archives
 
-mkdir Persistant
-cd Persistant
-mkdir CertbotData
-mkdir WordpressData
-mkdir DBData
+mkdir ./persistant
+cd ./persistant
+mkdir ./CertbotData
+mkdir ./WordpressData
+mkdir ./DBData
 cd ..
 
 mkdir ~/deployment
 cd ~/deployment
-mkdir nginx-conf
+mkdir ./nginx-conf
 
 
 

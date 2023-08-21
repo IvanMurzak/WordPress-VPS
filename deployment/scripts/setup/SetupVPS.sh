@@ -58,7 +58,8 @@ sudo service docker start
 echo "-------------------------------------"
 echo "----------- CERTBOT -----------------"
 echo "-------------------------------------"
-sudo yum install python3-certbot-nginx
+sudo yum install epel-release
+sudo yum install certbot-nginx
 
 #creating directories
 echo "-------------------------------------"

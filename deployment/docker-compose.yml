@@ -46,7 +46,7 @@ services:
           - "80:80"
           - "443:443"
         volumes:
-          - ./nginx-conf:/etc/nginx/conf.d
+          - ./nginx-conf:/etc/nginx/user_conf.d
           - certbot-etc:/etc/letsencrypt
           - wordpress:/var/www/html
         networks:

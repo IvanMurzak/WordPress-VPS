@@ -46,10 +46,9 @@ If you need more control, this project allows you to do it. You can modify the s
 
 **Docker compose layout**
 
-> - `webserver` - NGINX web server
+> - `nginx-certbot` - NGINX web server & CertBot SSL certificate creating and renewing
 > - `wordpress` - WordPress application
-> - `certbot` - SSL certificate creating and renewing
-> - `db` - MySQL database, used by WordPress
+> - `db` - MySQL Server, used by WordPress
 
 ## Usage by scripts
 
@@ -70,10 +69,9 @@ There are bunch of scripts to help you with the setup, maintenance, debugging an
 |✔️|✔️|`DockerComposeDownRemoveAll`|runs `down`, `build up` commands for docker compose|
 |✔️|✔️|`DockerComposeStopStart`|runs `down`, `build up` commands for docker compose|
 |✔️|✔️|`DockerRemoveVolumes`|runs `down`, `build up` commands for docker compose|
-|✔️|✔️|`LogWebServer`|Opens log stream for `webserver` docker instance|
+|✔️|✔️|`LogNGINX_CertBot`|Opens log stream for `nginx-certbot` docker instance|
+|✔️|✔️|`LogMySQL_Server`|Opens log stream for `db` docker instance|
 |✔️|✔️|`LogWordPress`|Opens log stream for `wordpress` docker instance|
-|✔️|✔️|`LogCertBot`|Opens log stream for `certbot` docker instance|
-|✔️|✔️|`LogDB`|Opens log stream for `db` docker instance|
 |✔️|❌|`Terminal`|Opens SSH connection, allows to type commands|
 |✔️|❌|`TerminalDedicated`|Opens SSH connection, allows to type commands in dedicated window|
 
@@ -95,11 +93,49 @@ It will forward internet traffic from your domain name to the VPS instance. It m
 
 ---
 
-## Setup VPS instance
+## Setup configuration files
+
+1. Open the file `./deployment/nginx-conf/nginx.conf` and replace `********` by your domain name in 6 different places. Make sure you don't miss any. File lines: 5 (twice), 25 (twice), 30, 31.
+
+    > The domain name is doubled two times for `www` and `non-www` versions. Keep it.
+
+2. Open the file `./deployment/.env` and replace `********` by your database credentials. You can use any.
+
+    > Make sure you have visible hidden files in your file explorer.
+
+### Required by MySQL
+
+- `MYSQL_USER`: The name of the MySQL user (choose any)
+- `MYSQL_PASSWORD`: The password of the MySQL user (choose any)
+- `MYSQL_ROOT_PASSWORD`: The password of the MySQL root user (choose any)
+
+> At first deployment it will be used to create database and user. For the next times it will be used for authentication. Make sure you don't change this file after first deployment, in other case you may have issues because incorrect credentials.
+
+### Required by Certbot
+
+- `CERTBOT_EMAIL`: Your e-mail address. Used by Let's Encrypt to contact you in case of security issues.
+
+### Optional
+
+- `DHPARAM_SIZE`: The size of the [Diffie-Hellman parameters](./docs/good_to_know.md#diffie-hellman-parameters) (default: `2048`)
+- `ELLIPTIC_CURVE`: The size/[curve][15] of the ECDSA keys (default: `secp256r1`)
+- `RENEWAL_INTERVAL`: Time interval between certbot's [renewal checks](./docs/good_to_know.md#renewal-check-interval) (default: `8d`)
+- `RSA_KEY_SIZE`: The size of the RSA encryption keys (default: `2048`)
+- `STAGING`: Set to `1` to use Let's Encrypt's [staging servers](./docs/good_to_know.md#initial-testing) (default: `0`)
+- `USE_ECDSA`: Set to `0` to have certbot use [RSA instead of ECDSA](./docs/good_to_know.md#ecdsa-and-rsa-certificates) (default: `1`)
+
+### Advanced
+
+- `CERTBOT_AUTHENTICATOR`: The [authenticator plugin](./docs/certbot_authenticators.md) to use when responding to challenges (default: `webroot`)
+- `CERTBOT_DNS_PROPAGATION_SECONDS`: The number of seconds to wait for the DNS challenge to [propagate](.docs/certbot_authenticators.md#troubleshooting-tips) (default: certbot's default)
+- `DEBUG`: Set to `1` to enable debug messages and use the [`nginx-debug`][10] binary (default: `0`)
+- `USE_LOCAL_CA`: Set to `1` to enable the use of a [local certificate authority](./docs/advanced_usage.md#local-ca) (default: `0`)
+
+## Deploy & Start
 
 Please follow instruction in the right order. Don't skip any step, each of them is important. There are two setup options. I personally recommend to use the first one, it's longer to setup and much easier to use.
 
-### Option 1: **[Setup by scripts](https://github.com/IvanMurzak/WordPress-VPS/blob/main/README_SETUP_BY_SCRIPTS.md)**
+### Option 1: **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**
 
 Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use, but requires more time to setup.
 
@@ -111,7 +147,7 @@ Execute local scripts at your local computer that automatically open SSH connect
 |✔️ Good for long term support||
 |✔️ Allows to run custom commands by `Local Script`:<br/>---- `Terminal`<br/>---- `TerminalDedicated`||
 
-### Option 2: **[Setup manually](https://github.com/IvanMurzak/WordPress-VPS/blob/main/README_SETUP_MANUALLY.md)**
+### Option 2: **[Deploy manually](./README_DEPLOY_MANUALLY.md)**
 
 Open SSH connection with VPS on your own and type commands manually. It's much faster to setup, but requires more time to use.
 

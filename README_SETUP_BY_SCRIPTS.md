@@ -49,6 +49,16 @@ Windows: `./scripts/windows/_configs.bat`
 - `SERVER` - IP address if VPS instance
 - `PASSWORD` - password for SSH connection
 
+#### Windows only - Accept SSH connection
+
+1. Launch PuTTY desktop app
+2. Choose `Session` in left column called "Category"
+3. Set IP address of VPS instance to `Host Name (or IP address)`
+4. Set `Port` to `22` (default SSH port)
+5. Choose `Connection` > `SSH`
+6. Press `Open` button
+7. Accept connection by pressing `Accept` button
+
 ### 4. Setup VPS environment
 
 VPS instance has to have required software such as Python, Docker, Docker compose and archive extractor. To setup everything **execute the script**.

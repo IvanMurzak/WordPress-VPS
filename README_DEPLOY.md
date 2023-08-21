@@ -12,6 +12,14 @@
   <a target="_blank" href="https://www.google.com/search?q=virtual+private+server"><img src="https://img.shields.io/badge/VPS-FFFFFF?style=for-the-badge&logo=vps&logoColor=white" /></a>
 </div>
 
+## Access to remove VPS terminal
+
+### From Windows
+
+- Install `PuTTY`
+  - accept SSH connection with your VPS instance by using IP address and Password
+- (optional) Install `WinSCP`
+
 ## Option: Use scripts to handle deployment
 
 This is easy way, highly recommended to use.
@@ -20,10 +28,6 @@ This is easy way, highly recommended to use.
 2. ...
 
 ### Windows
-
-- Install `PuTTY`
-  - accept SSH connection with your VPS instance by using IP address and Password
-- (optional) Install `WinSCP`
 
 ### Linux & Mac [not yet covered]
 

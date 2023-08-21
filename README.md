@@ -49,11 +49,32 @@ If you need more control, this project allows you to do it. You can modify the s
 |Storage                         |20 GB        |
 |RAM                             |1 GB         |
 
+## Get access to VPS's terminal
+
+Skip this part if you already have connection to your VPS instance.
+
 ## Setup
 
 Everything is build in, just need to setup some credentials in multiple different places. Then you will be able to use scripts to deploy WordPress to your VPS instance. Don't skip any step, each of them is important.
 
+### 0. Set up SSH connection to VPS
+
+
+
 ### 1. Prepare VPS
+
+#### Option: Use local script
+
+Linux: Execute the script `./scripts/linux/setup/SetupVPS.sh`
+Windows: Execute the script `./scripts/windows/setup/SetupVPS.bat`
+
+#### Option: Manual remote terminal
+
+Execute the script `~/deployment/scripts/setup/SetupVPS.sh`
+
+```bash
+sh ~/deployment/scripts/setup/SetupVPS.sh
+```
 
 ### 2. Nginx
 

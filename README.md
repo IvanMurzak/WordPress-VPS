@@ -2,6 +2,16 @@
 
 ![License](https://img.shields.io/github/license/IvanMurzak/WordPress-VPS) ![Stars](https://img.shields.io/github/stars/IvanMurzak/WordPress-VPS) [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://stand-with-ukraine.pp.ua)
 
+<div>
+  <a target="_blank" href="https://docs.docker.com/"><img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white" /></a>
+  <a target="_blank" href="https://developer.wordpress.org/"><img src="https://img.shields.io/badge/Wordpress-21759B?style=for-the-badge&logo=wordpress&logoColor=white" /></a>
+  <a target="_blank" href="https://mysql.com/"><img src="https://img.shields.io/badge/MySQL-3E6E93?style=for-the-badge&logo=mysql&logoColor=white" /></a>
+  <a target="_blank" href="https://letsencrypt.org/"><img src="https://img.shields.io/badge/LetsEncrypt-2C3C69?style=for-the-badge&logo=letsencrypt&logoColor=white" /></a>
+  <a target="_blank" href="https://nginx.com/"><img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" /></a>
+  <a target="_blank" href="https://certbot.eff.org/"><img src="https://img.shields.io/badge/CertBot-000000?style=for-the-badge&logo=eff&logoColor=white" /></a>
+  <a target="_blank" href="https://www.google.com/search?q=virtual+private+server"><img src="https://img.shields.io/badge/VPS-FFFFFF?style=for-the-badge&logo=vps&logoColor=white" /></a>
+</div>
+
 Deploy WordPress to VPS in Docker with SSL certificate by Let's Encrypt and CertBot. The project designed to simple usage, no advanced tech skills required. It contains scripts that will do all the work for you. You just need to setup some credentials and run the scripts from your local computer.
 
 If you need more control, this project allows you to do it. You can modify the scripts and `docker-compose.yml` file to fit your needs.
@@ -105,28 +115,6 @@ Deploy `deployment` folder to VPS using **[Deploy Instruction](https//github.com
 All done! You can now open your domain name in browser and see your WordPress website. You can also open `https://www.ssllabs.com/ssltest/analyze.html?d=yourdomainname.com` to verify that your SSL certificate is valid.
 
 ---
-
-## Deploy
-
-### Windows
-
-- Install `PuTTY`
-  - accept SSH connection with your VPS instance by using IP address and Password
-- (optional) Install `WinSCP`
-
-### Linux & Mac [not yet covered]
-
-Contributions are welcome! Need to translate `.bat` scripts to `.sh` and test them.
-
-### 1. VPS connection
-
-Windows: `commands/windows/_configs.bat`
-Linux & Mac: `commands/linux/_configs.sh`
-
-Open the `_configs` file related to your OS.
-Replace `****` by IP and Password to the VPS instance.
-
-### 4. Setup SSL
 
 ## Thanks to
 

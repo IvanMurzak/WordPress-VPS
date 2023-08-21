@@ -7,11 +7,13 @@ sudo yum -y install deltarpm
 sudo yum -y update
 sudo yum -y install bzip2
 sudo yum -y install lbzip2
+
 echo "-------------------------------------"
 echo "----------- PYTHON ------------------"
 echo "-------------------------------------"
 sudo yum -y install rh-python36
 scl enable rh-python36 bash
+
 echo "-------------------------------------"
 echo "----------- NANO --------------------"
 echo "-------------------------------------"
@@ -36,8 +38,8 @@ sudo yum -y install tar
 echo "-------------------------------------"
 echo "----------- DOCKER ------------------"
 echo "-------------------------------------"
-echo "----------- yum-utils ---------------"
 
+echo "----------- yum-utils ---------------"
 sudo yum -y install yum-utils
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 

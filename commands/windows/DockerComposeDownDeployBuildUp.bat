@@ -11,5 +11,5 @@ pscp -P 22 -pw %PASSWORD% ./%ARCHIVE% %USER%@%SERVER%:./archives
 
 del %ARCHIVE%
 
-plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "commands/remote/DockerComposeDownDeployBuildUp.txt" -batch
+plink -ssh %USER%@%SERVER% -pw %PASSWORD% -m "commands/remote/DockerComposeDownDeployBuildUp.sh" -batch
 pause

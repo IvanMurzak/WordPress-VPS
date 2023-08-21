@@ -70,10 +70,10 @@ There are bunch of scripts to help you with the setup, maintenance, debugging an
 |✔️|✔️|`DockerComposeDownRemoveAll`|runs `down`, `build up` commands for docker compose|
 |✔️|✔️|`DockerComposeStopStart`|runs `down`, `build up` commands for docker compose|
 |✔️|✔️|`DockerRemoveVolumes`|runs `down`, `build up` commands for docker compose|
-|✔️|✔️|`LogStreamWebServer`|Opens log stream for `webserver` docker instance|
-|✔️|✔️|`LogStreamWordPress`|Opens log stream for `wordpress` docker instance|
-|✔️|✔️|`LogStreamCertBot`|Opens log stream for `certbot` docker instance|
-|✔️|✔️|`LogStreamDB`|Opens log stream for `db` docker instance|
+|✔️|✔️|`LogWebServer`|Opens log stream for `webserver` docker instance|
+|✔️|✔️|`LogWordPress`|Opens log stream for `wordpress` docker instance|
+|✔️|✔️|`LogCertBot`|Opens log stream for `certbot` docker instance|
+|✔️|✔️|`LogDB`|Opens log stream for `db` docker instance|
 |✔️|❌|`Terminal`|Opens SSH connection, allows to type commands|
 |✔️|❌|`TerminalDedicated`|Opens SSH connection, allows to type commands in dedicated window|
 

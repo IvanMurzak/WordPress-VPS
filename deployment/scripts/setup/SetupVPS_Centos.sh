@@ -7,6 +7,8 @@ sudo yum -y install deltarpm
 sudo yum -y update
 sudo yum -y install bzip2
 sudo yum -y install lbzip2
+sudo yum -y install wget
+sudo yum -y install tar
 
 echo "-------------------------------------"
 echo "----------- PYTHON ------------------"
@@ -28,12 +30,6 @@ export VISUAL="nano"
 export EDITOR="nano"
 EOF
 
-#tar archivator
-echo "-------------------------------------"
-echo "----------- TAR ---------------------"
-echo "-------------------------------------"
-sudo yum -y install tar
-
 #docker
 echo "-------------------------------------"
 echo "----------- DOCKER ------------------"
@@ -41,8 +37,8 @@ echo "-------------------------------------"
 
 sudo yum -y install yum-utils
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+sudo yum -y install docker-ce docker-ce-cli containerd.io --disableexcludes=all
 sudo systemctl start docker
 
 #docker-compose

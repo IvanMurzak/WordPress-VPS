@@ -7,6 +7,8 @@ sudo dnf -y install epel-release
 sudo dnf -y install deltarpm
 sudo dnf -y install bzip2
 sudo dnf -y install lbzip2
+sudo dnf -y install wget
+sudo dnf -y install tar
 
 echo "-------------------------------------"
 echo "----------- PYTHON ------------------"
@@ -19,15 +21,13 @@ sudo dnf -y install python3-devel openssl-devel zlib-devel bzip2-devel sqlite-de
 # download and extract source archive
 wget https://www.python.org/ftp/python/3.6.13/Python-3.6.13.tgz
 tar xzf Python-3.6.13.tgz Python-3.6.13/
-cd Python-3.6.13/
+cd ./Python-3.6.13/
 # configure with all optimizations
 CC=clang LLVM_PROFDATA=/usr/bin/llvm-profdata ./configure --enable-optimizations --with-ensurepip=install
 # do not touch system default python
 CC=clang sudo make altinstall
 # cleanup
 cd .. && sudo rm -rf Python-3.6.13/
-
-scl enable rh-python36 bash
 
 echo "-------------------------------------"
 echo "----------- NANO --------------------"
@@ -42,12 +42,6 @@ cat <<EOF >>~/.bash_profile
 export VISUAL="nano"
 export EDITOR="nano"
 EOF
-
-#tar archivator
-echo "-------------------------------------"
-echo "----------- TAR ---------------------"
-echo "-------------------------------------"
-sudo dnf -y install tar
 
 #docker
 echo "-------------------------------------"

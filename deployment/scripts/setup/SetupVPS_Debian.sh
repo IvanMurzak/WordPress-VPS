@@ -7,6 +7,8 @@ sudo apt-get -y install epel-release
 sudo apt-get -y install deltarpm
 sudo apt-get -y install bzip2
 sudo apt-get -y install lbzip2
+sudo apt-get -y install wget
+sudo apt-get -y install tar
 
 echo "-------------------------------------"
 echo "----------- PYTHON ------------------"
@@ -35,12 +37,6 @@ cat <<EOF >>~/.bash_profile
 export VISUAL="nano"
 export EDITOR="nano"
 EOF
-
-#tar archivator
-echo "-------------------------------------"
-echo "----------- TAR ---------------------"
-echo "-------------------------------------"
-sudo apt-get -y install tar
 
 #docker
 echo "-------------------------------------"

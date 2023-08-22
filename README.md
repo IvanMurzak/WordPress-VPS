@@ -32,10 +32,10 @@ If you need more control, this project allows you to do it. You can modify the s
 
 - 🔴 Own a domain name, default one from any VPS hosting services also works.
 - 🔴 Verified Linux OS:
-  - ✔️`Fedora37`, ✔️`Fedora38`
   - ✔️`Ubuntu 20.04`, ✔️`Ubuntu 21.04`, ✔️`Ubuntu 22.04`, ✔️`Ubuntu 23.04`
+  - ✔️`Fedora 37`, ✔️`Fedora 38`
+  - ✔️`Centos 6`, ✔️`Centos 7`
   - ✔️`Debian 12`
-  - ✔️`Centos6`, ✔️`Centos7`
   - ❔ Another [not yet tried]
 
 | Hardware requirements     | Minimum    |

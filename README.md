@@ -10,7 +10,7 @@
   <a target="_blank" href="https://nginx.com/"><img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" /></a>
   <a target="_blank" href="https://certbot.eff.org/"><img src="https://img.shields.io/badge/CertBot-000000?style=for-the-badge&logo=eff&logoColor=white" /></a>
   <a target="_blank" href="https://www.google.com/search?q=virtual+private+server"><img src="https://img.shields.io/badge/VPS-FFFFFF?style=for-the-badge&logo=vps&logoColor=white" /></a>
-</div>
+</div><br/>
 
 Deploy WordPress to VPS in Docker with SSL certificate by Let's Encrypt and CertBot. The project is designed for simple usage, no advanced tech skills are required. It contains scripts that will do all the work for you. Still need to setup credentials and run the scripts from your local computer.
 
@@ -27,6 +27,8 @@ If you need more control, this project allows you to do it. You can modify the s
   - ✔️ `CertBot` as a certificate-creating and renewing tool
 - ✔️ `Docker` as a containerization platform
 - ✔️ `NGINX` as a web server
+
+![GitHub-Terminal-1](https://github.com/IvanMurzak/WordPress-VPS/assets/9135028/c2b184c7-a33a-4c6b-8ae4-2d64a46eb4ce)
 
 ## Requirements
 

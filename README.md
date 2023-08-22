@@ -34,6 +34,7 @@ If you need more control, this project allows you to do it. You can modify the s
 - 🔴 VPS instance with Linux OS:
   - ✔️`Centos6` [verified]
   - ✔️`Centos7` [verified]
+  - ✔️`Ubuntu 20.04` [verified]
   - ❔ Another [not yet verified]
 
 | Hardware requirements     | Minimum    |

@@ -2,16 +2,18 @@
 echo "-------------------------------------"
 echo "----------- GENERAL -----------------"
 echo "-------------------------------------"
+sudo apt-get -y update
 sudo apt-get -y install epel-release
 sudo apt-get -y install deltarpm
-sudo apt-get -y update
 sudo apt-get -y install bzip2
 sudo apt-get -y install lbzip2
 
 echo "-------------------------------------"
 echo "----------- PYTHON ------------------"
 echo "-------------------------------------"
-sudo apt-get -y install rh-python36
+sudo add-apt-repository -y ppa:jblgf0/python
+sudo apt-get -y update
+sudo apt-get -y install python3.6
 scl enable rh-python36 bash
 
 echo "-------------------------------------"
@@ -39,21 +41,32 @@ echo "-------------------------------------"
 echo "----------- DOCKER ------------------"
 echo "-------------------------------------"
 
-echo "----------- yum-utils ---------------"
-sudo apt-get -y install yum-utils
-sudo apt-get-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo apt-get -y update
+sudo apt-get -y install ca-certificates curl gnupg
 
-echo "----------- docker ------------------"
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io --disableexcludes=all
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get -y update
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
 sudo systemctl start docker
 
 #docker-compose
 echo "-------------------------------------"
 echo "----------- DOCKER COMPOSE ----------"
 echo "-------------------------------------"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo docker-compose --version
+
 sudo service docker start
 
 #update

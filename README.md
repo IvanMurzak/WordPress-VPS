@@ -31,16 +31,11 @@ If you need more control, this project allows you to do it. You can modify the s
 ## Requirements
 
 - 🔴 Own a domain name, default one from any VPS hosting services also works.
-- 🔴 VPS instance with Linux OS:
-  - ✔️`Fedora37` [verified]
-  - ✔️`Fedora38` [verified]
-  - ✔️`Ubuntu 20.04` [verified]
-  - ✔️`Ubuntu 21.04` [verified]
-  - ✔️`Ubuntu 22.04` [verified]
-  - ✔️`Ubuntu 23.04` [verified]
-  - ✔️`Debian 12` [verified]
-  - ✔️`Centos6` [verified]
-  - ✔️`Centos7` [verified]
+- 🔴 Verified Linux OS:
+  - ✔️`Fedora37`, ✔️`Fedora38`
+  - ✔️`Ubuntu 20.04`, ✔️`Ubuntu 21.04`, ✔️`Ubuntu 22.04`, ✔️`Ubuntu 23.04`
+  - ✔️`Debian 12`
+  - ✔️`Centos6`, ✔️`Centos7`
   - ❔ Another [not yet tried]
 
 | Hardware requirements     | Minimum    |

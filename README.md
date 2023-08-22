@@ -141,24 +141,34 @@ Please follow instruction in the right order. Don't skip any step, each of them 
 
 #### Deploy option 1: **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**
 
-Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use, but requires more time to setup.
+Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use, but requires more time to setup. **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**.
 
-| Pros | Cons |
-| :--- | :--- |
-|✔️ Fast access to bunch of scripts from your computer|❌ Requires more time to install|
-|✔️ Executing scripts by mouse double click|❌ Complicated at Windows OS|
-|✔️ No need to open SSH connection manually||
-|✔️ Good for long term support||
-|✔️ Allows to run custom commands by `Local Script`:<br/>---- `Terminal`<br/>---- `TerminalDedicated`||
+<details>
+  <summary>✔️Pros & ❌Cons</summary>
+  
+  | Pros | Cons |
+  | :--- | :--- |
+  |✔️ Fast access to bunch of scripts from your computer|❌ Requires more time to install|
+  |✔️ Executing scripts by mouse double click|❌ Complicated at Windows OS|
+  |✔️ No need to open SSH connection manually||
+  |✔️ Good for long term support||
+  |✔️ Allows to run custom commands by `Local Script`:<br/>---- `Terminal`<br/>---- `TerminalDedicated`||
+
+</details>
 
 #### Deploy Option 2: **[Deploy manually](./README_DEPLOY_MANUALLY.md)**
 
-Open SSH connection with VPS on your own and type commands manually. It's much faster to setup, but requires more time to use.
+Open SSH connection with VPS on your own and type commands manually. It's much faster to setup, but requires more time to use. **[Deploy manually](./README_DEPLOY_MANUALLY.md)**.
 
-| Pros | Cons |
-| :--- | :--- |
-|✔️ Easy to setup|❌ Need manually type commands|
-|✔️ Allows to run custom commands|❌ Need manually open SSH connection|
+<details>
+  <summary>✔️Pros & ❌Cons</summary>
+
+  | Pros | Cons |
+  | :--- | :--- |
+  |✔️ Easy to setup|❌ Need manually type commands|
+  |✔️ Allows to run custom commands|❌ Need manually open SSH connection|
+
+</details>
 
 ---
 

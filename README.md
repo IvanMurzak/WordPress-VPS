@@ -12,7 +12,7 @@
   <a target="_blank" href="https://www.google.com/search?q=virtual+private+server"><img src="https://img.shields.io/badge/VPS-FFFFFF?style=for-the-badge&logo=vps&logoColor=white" /></a>
 </div>
 
-Deploy WordPress to VPS in Docker with SSL certificate by Let's Encrypt and CertBot. The project designed for simple usage, no advanced tech skills required. It contains scripts that will do all the work for you. Still need to setup credentials and run the scripts from your local computer.
+Deploy WordPress to VPS in Docker with SSL certificate by Let's Encrypt and CertBot. The project is designed for simple usage, no advanced tech skills are required. It contains scripts that will do all the work for you. Still need to setup credentials and run the scripts from your local computer.
 
 If you need more control, this project allows you to do it. You can modify the scripts and `docker-compose.yml` file to fit your needs.
 
@@ -24,13 +24,13 @@ If you need more control, this project allows you to do it. You can modify the s
 - ✔️ `HTTPS` create and auto-renewal
   - ✔️ `SSL certificate` with auto-renewal
   - ✔️ `Let's Encrypt` as a certificate authority
-  - ✔️ `CertBot` as a certificate creating and renewing tool
+  - ✔️ `CertBot` as a certificate-creating and renewing tool
 - ✔️ `Docker` as a containerization platform
 - ✔️ `NGINX` as a web server
 
 ## Requirements
 
-- 🔴 Own a domain name, default one from any VPS hosting services also works.
+- 🔴 Own a domain name, a default one from any VPS hosting service also works.
 - 🔴 Verified Linux OS:
   - ✔️`Ubuntu 20.04`, ✔️`Ubuntu 21.04`, ✔️`Ubuntu 22.04`, ✔️`Ubuntu 23.04`
   - ✔️`Fedora 37`, ✔️`Fedora 38`
@@ -54,12 +54,12 @@ If you need more control, this project allows you to do it. You can modify the s
 
 ## Scripts
 
-There are bunch of scripts to help you with the setup, maintenance, debugging and monitoring.
+There are a bunch of scripts to help you with the setup, maintenance, debugging, and monitoring.
 
 | Script Type       | Location<br/><br/>     | Description<br/><br/> |
 | :---------------- | :--------------------- | :-------------------- |
-| `Local`<br/><br/> | `./scripts/linux`<br/>`./scripts/windows`  | This script should be executed at local computer (not VPS). It opens SSH connection automatically with VPS and forwards commands to execute remotely |
-| `Deployed`        | `./deployment/scripts` | Designed to be executed in VPS environment, also could be executed remotely by `Local Script` |
+| `Local`<br/><br/> | `./scripts/linux`<br/>`./scripts/windows`  | This script should be executed on a local computer (not VPS). It opens SSH connection automatically with VPS and forwards commands to execute remotely |
+| `Deployed`        | `./deployment/scripts` | Designed to be executed in a VPS environment, also could be executed remotely by `Local Script` |
 
 ### Scripts list
 
@@ -83,7 +83,7 @@ There are bunch of scripts to help you with the setup, maintenance, debugging an
 
 ### 1. Setup domain name
 
-Open admin panel of your domain name provider. Find DNS settings. Let's use demo domain name **`my-domain.com`** with demo IP address **`123.123.123.123`** to fill records. Please use your own domain name and IP address.
+Open an admin panel of your domain name provider. Find DNS settings. Let's use demo domain name **`my-domain.com`** with demo IP address **`123.123.123.123`** to fill records. Please use your own domain name and IP address.
 
 - Setup `A` record to point to **`123.123.123.123`**
 - Setup `CNAME` record to point to **`my-domain.com`** record
@@ -99,7 +99,7 @@ It will forward internet traffic from your domain name to the VPS instance. It m
 
 ### 2. Setup configuration files
 
-1. Open the file `./deployment/nginx-conf/nginx.conf` and replace `********` by your domain name in 6 different places. Make sure you don't miss any. File lines: 5 (twice), 25 (twice), 30, 31.
+1. Open the file `./deployment/nginx-conf/nginx.conf` and replace `********` with your domain name in 6 different places. Make sure you don't miss any. File lines: 5 (twice), 25 (twice), 30, 31.
 
     > The domain name is doubled two times for `www` and `non-www` versions. Keep it.
 
@@ -113,7 +113,7 @@ It will forward internet traffic from your domain name to the VPS instance. It m
 - `MYSQL_PASSWORD`: The password of the MySQL user (choose any)
 - `MYSQL_ROOT_PASSWORD`: The password of the MySQL root user (choose any)
 
-> At first deployment it will be used to create database and user. For the next times it will be used for authentication. Make sure you don't change this file after first deployment, in other case you may have issues because incorrect credentials.
+> At first deployment it will be used to create a database and user. The next time, it will be used for authentication. Make sure you don't change this file after the first deployment, in another case you may have issues because of incorrect credentials.
 
 #### Required by Certbot
 
@@ -137,11 +137,11 @@ It will forward internet traffic from your domain name to the VPS instance. It m
 
 ### 3. Deploy & Start
 
-Please follow instruction in the right order. Don't skip any step, each of them is important. There are two setup options. I personally recommend to use the first one, it's longer to setup and much easier to use.
+Please follow the instructions in the right order. Don't skip any step, each of them is important. There are two setup options. I personally recommend using the first one, it's longer to set up and much easier to use.
 
 #### Deploy Option 1: **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**
 
-Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use, but requires more time to setup. **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**.
+Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use but requires more time to setup. **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**.
 
 <details>
   <summary>✔️Pros & ❌Cons</summary>
@@ -151,7 +151,7 @@ Execute local scripts at your local computer that automatically open SSH connect
   |✔️ Fast access to bunch of scripts from your computer|❌ Requires more time to install|
   |✔️ Executing scripts by mouse double click|❌ Complicated at Windows OS|
   |✔️ No need to open SSH connection manually||
-  |✔️ Good for long term support||
+  |✔️ Good for long-term support||
   |✔️ Allows to run custom commands by `Local Script`:<br/>---- `Terminal`<br/>---- `TerminalDedicated`||
 
 </details>
@@ -174,5 +174,5 @@ Open SSH connection with VPS on your own and type commands manually. It's much f
 
 ## Thanks
 
-- 🌟 **Denys Svitelskyi** for his help with bash scripts creation.
-- 🌟 **[DigitalOcean](https://www.digitalocean.com/)** for their great tutorials that helped me to bring all together. **[Hot To Install WordPress With Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose).**
+- 🌟 **Denys Svitelskyi** for his help with bash script creation.
+- 🌟 **[DigitalOcean](https://www.digitalocean.com/)** for their great tutorials that helped me bring everything together. **[Hot To Install WordPress With Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose).**

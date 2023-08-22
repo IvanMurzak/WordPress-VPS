@@ -46,7 +46,7 @@ If you need more control, this project allows you to do it. You can modify the s
 | Hardware requirements     | Minimum    |
 | :------------------------ | :--------- |
 | CPU Cores                 | 1 CPU core |
-| Storage                   | 20 GB      |
+| Storage                   | 10 GB      |
 | RAM                       | 1 GB       |
 
 ---

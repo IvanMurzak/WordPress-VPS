@@ -12,6 +12,10 @@
   <a target="_blank" href="https://www.google.com/search?q=virtual+private+server"><img src="https://img.shields.io/badge/VPS-FFFFFF?style=for-the-badge&logo=vps&logoColor=white" /></a>
 </div><br/>
 
+Self-hosting is the cheapest way to have a WordPress web page. But at the same time, it requires to have tech skills and waste some time on it. This project was done with the idea to fix this issue. 
+
+It contains a bunch of scripts and configuration files that could be easily updated to your need and launched directly from your local computer. It creates a WordPress instance in a remote Virtual Private Server(VPS) instance, creates a local database at that VPS, and generates an SSL certificate to allow HTTPS access. Also supports custom domain names. All of that works out of the box. Just follow the instructions.
+
 Deploy WordPress to VPS in Docker with SSL certificate by Let's Encrypt and CertBot. The project is designed for simple usage, no advanced tech skills are required. It contains scripts that will do all the work for you. Still need to setup credentials and run the scripts from your local computer.
 
 If you need more control, this project allows you to do it. You can modify the scripts and `docker-compose.yml` file to fit your needs.

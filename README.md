@@ -139,7 +139,7 @@ It will forward internet traffic from your domain name to the VPS instance. It m
 
 Please follow instruction in the right order. Don't skip any step, each of them is important. There are two setup options. I personally recommend to use the first one, it's longer to setup and much easier to use.
 
-#### Deploy option 1: **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**
+#### Deploy Option 1: **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**
 
 Execute local scripts at your local computer that automatically open SSH connection and send commands to VPS. It's much easier to use, but requires more time to setup. **[Deploy by scripts](./README_DEPLOY_BY_SCRIPTS.md)**.
 

@@ -12,12 +12,15 @@ echo "-------------------------------------"
 echo "----------- PYTHON ------------------"
 echo "-------------------------------------"
 
-sudo apt-get -y update
-sudo apt-get -y install python3.6-pip
-sudo apt-get -y install build-essential libssl-dev libffi-dev python3.6-dev
-sudo apt-get -y install python3.6-venv
-
-scl enable rh-python36 bash
+wget https://www.python.org/ftp/python/3.6.13/Python-3.6.13.tgz
+tar xzf Python-3.6.13.tgz Python-3.6.13/
+cd Python-3.6.13/
+# configure with all optimizations
+CC=clang LLVM_PROFDATA=/usr/bin/llvm-profdata ./configure --enable-optimizations --with-ensurepip=install
+# do not touch system default python
+CC=clang sudo make altinstall
+# cleanup
+cd .. && sudo rm -rf Python-3.6.13/
 
 echo "-------------------------------------"
 echo "----------- NANO --------------------"

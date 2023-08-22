@@ -2,22 +2,27 @@
 echo "-------------------------------------"
 echo "----------- GENERAL -----------------"
 echo "-------------------------------------"
-sudo yum -y install epel-release
-sudo yum -y install deltarpm
-sudo yum -y update
-sudo yum -y install bzip2
-sudo yum -y install lbzip2
+sudo apt-get -y update
+sudo apt-get -y install epel-release
+sudo apt-get -y install deltarpm
+sudo apt-get -y install bzip2
+sudo apt-get -y install lbzip2
 
 echo "-------------------------------------"
 echo "----------- PYTHON ------------------"
 echo "-------------------------------------"
-sudo yum -y install rh-python36
+
+sudo apt-get -y update
+sudo apt-get -y install python3.6-pip
+sudo apt-get -y install build-essential libssl-dev libffi-dev python3.6-dev
+sudo apt-get -y install python3.6-venv
+
 scl enable rh-python36 bash
 
 echo "-------------------------------------"
 echo "----------- NANO --------------------"
 echo "-------------------------------------"
-sudo yum -y install nano
+sudo apt-get -y install nano
 echo 'echo "set nowrap" >>/etc/nanorc' | sudo sh
 echo 'cat <<EOF >>/etc/profile.d/nano.sh
 export VISUAL="nano"
@@ -32,16 +37,27 @@ EOF
 echo "-------------------------------------"
 echo "----------- TAR ---------------------"
 echo "-------------------------------------"
-sudo yum -y install tar
+sudo apt-get -y install tar
 
 #docker
 echo "-------------------------------------"
 echo "----------- DOCKER ------------------"
 echo "-------------------------------------"
 
-sudo yum -y install yum-utils
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-sudo yum -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get -y update
+sudo apt-get -y install ca-certificates curl gnupg
+
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get -y update
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 sudo systemctl start docker
 
@@ -49,13 +65,15 @@ sudo systemctl start docker
 echo "-------------------------------------"
 echo "----------- DOCKER COMPOSE ----------"
 echo "-------------------------------------"
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo docker-compose --version
+
 sudo service docker start
 
 #update
-sudo yum -y update
+sudo apt-get -y update
 
 #creating directories
 echo "-------------------------------------"
